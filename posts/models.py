@@ -5,7 +5,7 @@ from django.db import models
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    content = models.TextField(max_length=250)
+    content = models.TextField()
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
