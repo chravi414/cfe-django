@@ -16,6 +16,8 @@ def posts_detail(request, id):
 
 
 def post_create(request):
+    form = PostModelForm()
+    # form = PostForm()
     if request.method == 'POST':
         # form = PostForm(request.POST)
         form = PostModelForm(request.POST)
@@ -24,8 +26,6 @@ def post_create(request):
             print(form.cleaned_data)
             # obj = Post.objects.create(**form.cleaned_data)
             form.save()
-    # form = PostForm()
-    form = PostModelForm()
     return render(request, 'posts/post_create.html', {"form": form})
 
 
