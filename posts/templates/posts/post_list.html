@@ -1,12 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <ul class="list">
-    {% for post in posts %}
-    <li class="list-item">
-        <h3>{{post.title}}</h3>
-        <p>{{post.content}}</p>
-        <p>{{post.created_at}}</p>
-    </li>
-    {% endfor %}
+    <h1>All Posts</h1>
+    <p>There are total of {{posts.count}} posts.</p>
+    {% for post in posts %} {% include "posts/post-item.html" with truncate=True %} {% endfor %}
 </ul>
 
 {% endblock content %}
