@@ -1,0 +1,16 @@
+<div class="card mb-5 w-75">
+    <div class="card-header">
+        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            {% if truncate %} {{post.content | linebreaks | truncatewords:30}} {% else %} {{post.content | linebreaks}} {%endif%}
+        </p>
+        <footer class="blockquote-footer m-2">
+            Created Date :<cite title="Source Title">{{post.created_at}}</cite>
+        </footer>
+        <a class="btn btn-primary" href="{% url 'post_update' id=post.id%}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'post_delete' id=post.id%}">Delete</a
+    >
+  </div>
+</div>

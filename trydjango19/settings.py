@@ -69,7 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'trydjango19.wsgi.application'
-
+LOGIN_URL = '/admin/login'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -119,3 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOCAL_STATIC_CDN_PATH = os.path.join(BASE_DIR, 'static_cdn_test')
+print("local static cdn ", LOCAL_STATIC_CDN_PATH)
+# Like AWS S3
+STATIC_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles')
+]
+MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
+MEDIA_URL = '/media/'

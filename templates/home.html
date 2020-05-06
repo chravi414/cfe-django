@@ -1,0 +1,3 @@
+{% extends "base.html" %} {% block content %}
+<h1>Latest 5 Posts</h1>
+{% for post in posts %} {% include "posts/post-item.html" %} {% endfor %} {% endblock %}
