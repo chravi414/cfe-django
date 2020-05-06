@@ -2,6 +2,21 @@
 <ul class="list">
     <h1>All Posts</h1>
     <p>There are total of {{posts.count}} posts.</p>
+    {% if search %}
+    <p>Showing results for term {{search}}.</p>
+    {% endif %}
+    <form action="{% url 'post_search' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group w-50 my-2">
+            <input type="text" name="search" class="form-control" placeholder="Search this blog" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">
+          <i class="fas fa-search"></i>
+        </button>
+            </div>
+        </div>
+    </form>
+
     {% for post in posts %} {% include "posts/post-item.html" with truncate=True %} {% endfor %}
 </ul>
 
